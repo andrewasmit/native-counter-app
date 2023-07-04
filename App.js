@@ -4,7 +4,16 @@ import { useState } from 'react';
 
 export default function App() {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  
+
+  function increment(){
+    setCount(count + 1);
+  }
+
+  function decrement(){
+    setCount(count - 1);
+  }
 
   return (
     <View style={styles.container}>
@@ -12,11 +21,12 @@ export default function App() {
       <Text>The Count: {count}</Text>
       <Button
         title="Increase the count"
-        onPress={() => setCount(count+1)}
+        onPress={increment}
       />
       <Button
         title="Decrease the count"
-        onPress={() => setCount(count-1)}
+        disabled={ count > 0 ?  false : true }
+        onPress={decrement}
       />
       <StatusBar style="auto" />
     </View>
