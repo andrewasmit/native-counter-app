@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
-
+  
   function increment() {
     setCount(count + 1);
   }
@@ -16,8 +16,12 @@ function Counter() {
   return (
     <View style={styles.container}>
       <Text>This is Andrew's simple Counter-App</Text>
-      <Text>The Count: {count}</Text>
-      <Button title="Increase the count" onPress={increment} />
+      <Text>Count: {count}</Text>
+      <Button
+        title="Increase the count" 
+        onPress={increment} 
+        icon="plus-thick"
+        />
       <Button
         title="Decrease the count"
         disabled={count > 0 ? false : true}
