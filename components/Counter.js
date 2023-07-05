@@ -1,9 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function Counter({ count, setCount }) {
 
   const increment = useCallback(()=>{
     setCount(count + 1);
@@ -23,8 +22,6 @@ function Counter() {
 
   return (
     <View style={styles.container}>
-      <Text>This is Andrew's simple Counter-App</Text>
-      <Text>Count: {count}</Text>
       <Button
         title="Increase the count" 
         onPress={increment} 
