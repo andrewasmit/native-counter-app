@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Text, View, StyleSheet, AppRegistry } from 'react-native';
-// import { PaperProvider } from 'react-native-paper';
+import { PaperProvider } from 'react-native-paper';
 import { name as appName } from '../app.json';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -25,11 +25,13 @@ export default function Main() {
   }
 
   return (
-    <View onLayout={onLayoutRootView}>
-      <Text style={{fontFamily: 'WinterSong', fontSize: 45 }}>This is Andrew's simple Counter-App</Text>
-      <Text style={{fontFamily: 'WinterSong', fontSize: 30 }}>Count: {count}</Text>
+    <PaperProvider>
+      <View onLayout={onLayoutRootView}>
+        <Text style={{fontFamily: 'WinterSong', fontSize: 45 }}>This is Andrew's simple Counter-App</Text>
+        <Text style={{fontFamily: 'WinterSong', fontSize: 30 }}>Count: {count}</Text>
+      </View>
       <Counter count={count} setCount={setCount}/>
-    </View>
+    </PaperProvider>
   );
 }
 
