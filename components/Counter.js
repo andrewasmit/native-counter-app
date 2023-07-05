@@ -1,17 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
-  
-  function increment() {
-    setCount(count + 1);
-  }
 
-  function decrement() {
+  const increment = useCallback(()=>{
+    setCount(count + 1);
+  },[count])
+
+  const decrement = useCallback(()=>{
     setCount(count - 1);
-  }
+  },[count])
+  
+  // function increment() {
+  //   setCount(count + 1);
+  // }
+
+  // function decrement() {
+  //   setCount(count - 1);
+  // }
 
   return (
     <View style={styles.container}>
