@@ -11,7 +11,8 @@ SplashScreen.preventAutoHideAsync();
 export default function Main() {
   const [count, setCount] = useState(0);
   const [fontsLoaded] = useFonts({
-    'WinterSong' : require('../assets/fonts/WinterSong-owRGB.ttf')
+    'WinterSong' : require('../assets/fonts/WinterSong-owRGB.ttf'),
+    'Ysabeau' : require('../assets/fonts/YsabeauSC-VariableFont_wght.ttf')
   });
 
   const onLayoutRootView = useCallback(async ()=>{
@@ -26,13 +27,22 @@ export default function Main() {
 
   return (
     <PaperProvider>
-      <View onLayout={onLayoutRootView}>
-        <Text style={{fontFamily: 'WinterSong', fontSize: 45 }}>This is Andrew's simple Counter-App</Text>
-        <Text style={{fontFamily: 'WinterSong', fontSize: 30 }}>Count: {count}</Text>
+      <View style={styles.container} onLayout={onLayoutRootView}>
+        <Text style={{fontFamily: 'WinterSong', fontSize: 45 }}>This is Andrew's Counter-App</Text>
+        <Text style={{fontFamily: 'Ysabeau', fontSize: 30 }}>Count: {count}</Text>
       </View>
       <Counter count={count} setCount={setCount}/>
     </PaperProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 AppRegistry.registerComponent(appName, () => Main);
